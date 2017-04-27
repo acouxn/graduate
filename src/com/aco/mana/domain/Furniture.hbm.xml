@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.aco.mana.domain.Furniture" table="furniture">
+		<id name="fid" column="fid">
+			<generator class="native" />
+		</id>
+		<property name="fname" column="fname" length="20" />
+		<property name="ftype" column="ftype" length="20" />
+		<property name="fsize" column="fsize" length="20" />
+		<property name="fcolor" column="fcolor" length="20" />
+		<property name="fbrand" column="fbrand" length="20" />
+		<property name="fsupply" column="fsupply" length="20" />
+		<property name="su_phone" column="su_phone" length="20" />
+		<property name="su_address" column="su_address" length="20" />
+		<property name="finprice" column="finprice" length="20" />
+		<property name="fexplain" column="fexplain" length="40" />
+	
+		<!-- 配置关联关系的映射 -->
+		<set name="inFurniture" table="INFURNITURE_FURNITURE">
+			<key column="furniture_id" />
+			<many-to-many class="com.aco.mana.domain.InFurniture" column="infurniture_id" />
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="ssh" extends="struts-default" namespace="/">
+		<action name="admin_*" class="adminAction" method="{1}">
+			<result name="input">/page/login.jsp</result>
+			<result name="success" type="redirect">/page/index.jsp</result>
+			<result name="logoutSuccess" type="redirect">/page/login.jsp</result>
+		</action>
+		
+		<action name="furniture_*" class="furnitureAction" method="{1}">
+			<result name="findAll">/page/listFurniture.jsp</result>
+			<result name="saveSuccess" type="redirectAction">furniture_findAll.action</result>		
+			<result name="editSuccess">/page/editFurniture.jsp</result>
+			<result name="updateSuccess" type="redirectAction">furniture_findAll.action</result>
+			<result name="deleteSuccess" type="redirectAction">furniture_findAll.action</result>
+		</action>
+		
+		<action name="storehouse_*" class="storehouseAction" method="{1}">
+			<result name="findAll">/page/listStoreHouse.jsp</result>
+			<result name="saveSuccess" type="redirectAction">storehouse_findAll.action</result>		
+			<result name="editSuccess">/page/editStoreHosue.jsp</result>
+			<result name="updateSuccess" type="redirectAction">storehouse_findAll.action</result>
+			<result name="deleteSuccess" type="redirectAction">storehouse_findAll.action</result>
+		</action>
+		
+		<action name="client_*" class="clientAction" method="{1}">
+			<result name="findAll">/page/listClient.jsp</result>
+			<result name="saveSuccess" type="redirectAction">client_findAll.action</result>		
+			<result name="editSuccess">/page/editClient.jsp</result>
+			<result name="updateSuccess" type="redirectAction">client_findAll.action</result>
+			<result name="deleteSuccess" type="redirectAction">client_findAll.action</result>
+		</action>
+		
+		<action name="inFurniture_*" class="inFurnitureAction" method="{1}">
+			<result name="findAll">/page/listInFurniture.jsp</result>
+			<result name="saveSuccess" type="redirectAction">inFurniture_findAll.action</result>		
+			<result name="editSuccess">/page/editInFurniture.jsp</result>
+			<result name="updateSuccess" type="redirectAction">inFurniture_findAll.action</result>
+			<result name="deleteSuccess" type="redirectAction">inFurniture_findAll.action</result>
+			<result name="findFurniture">/page/listInFurnitureDetail.jsp</result>
+		</action>
+		
+	</package>
+
+</struts>
