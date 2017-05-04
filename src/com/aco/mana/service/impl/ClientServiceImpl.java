@@ -26,7 +26,7 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	/**
-	 * 业务层分页查询货物的方法
+	 * 业务层分页查询客户的方法
 	 */
 	@Override
 	public PageBean<Client> findByPage(Integer currPage) {
@@ -52,7 +52,7 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	/**
-	 * 业务层保存货物的方法
+	 * 业务层保存客户的方法
 	 */
 	@Override
 	public void save(Client client) {
@@ -61,7 +61,7 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	/**
-	 * 业务层根据货物ID查询货物的方法
+	 * 业务层根据客户ID查询客户的方法
 	 */
 	@Override
 	public Client findById(Integer cid) {
@@ -70,7 +70,7 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	/**
-	 * 业务层更新货物的方法
+	 * 业务层更新客户的方法
 	 */
 	@Override
 	public void update(Client client) {
@@ -79,12 +79,21 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	/**
-	 * 业务层删除货物的方法
+	 * 业务层删除客户的方法
 	 */
 	@Override
 	public void delete(Client client) {
 		// TODO Auto-generated method stub
 		clientDao.delete(client);
+	}
+	
+	/**
+	 * 业务层查询客户的方法
+	 */
+	@Override
+	public List<Client> findAll() {
+		// TODO Auto-generated method stub
+		return clientDao.findAll();
 	}
 
 }

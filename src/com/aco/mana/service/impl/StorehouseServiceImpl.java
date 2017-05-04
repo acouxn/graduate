@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.aco.mana.dao.StorehouseDao;
-import com.aco.mana.domain.Furniture;
 import com.aco.mana.domain.PageBean;
 import com.aco.mana.domain.Storehouse;
 import com.aco.mana.service.StorehouseService;
@@ -92,4 +91,5 @@ public class StorehouseServiceImpl implements StorehouseService{
 		// TODO Auto-generated method stub
 		return storehouseDao.finAll();
 	}
+	
 }

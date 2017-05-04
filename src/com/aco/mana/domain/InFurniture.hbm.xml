@@ -8,18 +8,15 @@
 			<generator class="native" />
 		</id>
 		<property name="in_no" column="in_no" length="20" />
-	
-		<property name="num" column="num" length="20" />
-		<property name="in_fprice" column="in_fprice" length="20" />
-		<property name="in_transprice" column="in_transprice" length="20" />
-		<property name="sid" column="sid" length="20" />
-		<property name="in_time" column="in_time" />
+		<property name="in_time" column="in_time"/>
 		<property name="iremark" column="iremark" length="20" />
 
 		<!-- 关联关系的映射 -->
-		<set name="furniture" table="INFURNITURE_FURNITURE" inverse="false">
-			<key column="infurniture_id" />
-			<many-to-many class="com.aco.mana.domain.Furniture" column="furniture_id" />
+				<set name="inFurnitureDetail" cascade="delete" inverse="true">
+			<key column="in_fid" />
+			<one-to-many class="com.aco.mana.domain.InFurnitureDetail" />
 		</set>
+	
 	</class>
+
 </hibernate-mapping>

@@ -8,14 +8,19 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import com.aco.mana.dao.InFurnitureDao;
 import com.aco.mana.domain.InFurniture;
 
+/**
+ * 进货单管理的Dao层实现类
+ * @author Administrator
+ *
+ */
 public class InFurnitureDaoImpl extends HibernateDaoSupport implements InFurnitureDao{
-	
+
 	/**
 	 * dao层查询进货单总记录数的方法
 	 */
 	@Override
 	public int findCount() {
-		String hql = "select count(*) from InFurniture";//select count(*) from InFurniture inf left outer join inf.furniture
+		String hql = "select count(*) from InFurniture";
 		List<Long> list = this.getHibernateTemplate().find(hql);
 		if(list.size()>0){
 			return list.get(0).intValue();
@@ -32,7 +37,7 @@ public class InFurnitureDaoImpl extends HibernateDaoSupport implements InFurnitu
 		List<InFurniture> list = this.getHibernateTemplate().findByCriteria(criteria, begin, pageSize); 
 		return list;
 	}
-
+	
 	/**
 	 * dao层保存进货单
 	 */
@@ -45,9 +50,9 @@ public class InFurnitureDaoImpl extends HibernateDaoSupport implements InFurnitu
 	 * dao层根据进货单ID查询进货单的方法
 	 */
 	@Override
-	public InFurniture findById(Integer iid) {
+	public InFurniture findById(Integer fid) {
 		// TODO Auto-generated method stub
-		return this.getHibernateTemplate().get(InFurniture.class, iid);
+		return this.getHibernateTemplate().get(InFurniture.class, fid);
 	}
 	
 	/**
@@ -67,4 +72,16 @@ public class InFurnitureDaoImpl extends HibernateDaoSupport implements InFurnitu
 		// TODO Auto-generated method stub
 		this.getHibernateTemplate().delete(inFurniture);
 	}
+	
+	/**
+	 * Dao中查询所有进货单的方法
+	 */
+	@Override
+	public List<InFurniture> finAll() {
+		// TODO Auto-generated method stub
+		return this.getHibernateTemplate().find("from InFurniture");
+		
+	}
+
+	
 }

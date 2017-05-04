@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.aco.mana.domain.OutFurniture" table="outfurniture">
+		<id name="out_fid" column="out_fid">
+			<generator class="native" />
+		</id>
+		<property name="out_no" column="out_no" length="20" />
+		<property name="out_time" column="out_time"/>
+		<property name="oremark" column="oremark" length="20" />
+		<property name="status" column="status" length="10" />
+		
+		<!-- 关联关系的映射 -->
+		<many-to-one name="client" class="com.aco.mana.domain.Client"
+			column="out_cid"></many-to-one>
+		<set name="outFurnitureDetail" cascade="delete" inverse="true">
+			<key column="out_fid" />
+			<one-to-many class="com.aco.mana.domain.OutFurnitureDetail" />
+		</set>
+	
+	</class>
+
+</hibernate-mapping>

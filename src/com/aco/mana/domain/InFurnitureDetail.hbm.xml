@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.aco.mana.domain.InFurnitureDetail" table="infurnituredetail">
+		<id name="in_fdid" column="in_fdid">
+			<generator class="native">
+			</generator>
+		</id>
+
+		<property name="in_fdnum" column="in_fdnum" length="20" />
+
+		<property name="in_fprice" column="in_fprice" length="20" />
+		<property name="in_ftransprice" column="in_ftransprice" />
+
+		<!-- 关联关系的映射 -->
+
+		<many-to-one name="furniture" class="com.aco.mana.domain.Furniture"
+			column="in_fdfid"></many-to-one>
+		<many-to-one name="storehouse" class="com.aco.mana.domain.Storehouse"
+			column="in_fdsid"></many-to-one>
+	    <many-to-one  name="inFurniture" class="com.aco.mana.domain.InFurniture" 
+	    	column="in_fid" />
+
+	</class>
+</hibernate-mapping>

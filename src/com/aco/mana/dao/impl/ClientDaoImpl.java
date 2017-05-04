@@ -74,5 +74,14 @@ public class ClientDaoImpl extends HibernateDaoSupport implements ClientDao {
 		// TODO Auto-generated method stub
 		this.getHibernateTemplate().delete(client);
 	}
+	
+	/**
+	 * Dao层查询所有客户信息的方法
+	 */
+	@Override
+	public List<Client> findAll() {
+		// TODO Auto-generated method stub
+		return this.getHibernateTemplate().find("from Client");
+	}
 
 }

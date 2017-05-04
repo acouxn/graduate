@@ -1,5 +1,8 @@
 package com.aco.mana.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 客户信息的bean
  * @author Administrator
@@ -11,6 +14,9 @@ public class Client {
 	String cphone;//客户电话
 	String caddress;//客户的送货地址
 	String cremark;//客户备注
+	
+	private Set<OutFurniture> outFurniture = new HashSet<OutFurniture>();//所属销售单集合
+	
 	public Integer getCid() {
 		return cid;
 	}
@@ -40,6 +46,12 @@ public class Client {
 	}
 	public void setCremark(String cremark) {
 		this.cremark = cremark;
+	}
+	public Set<OutFurniture> getOutFurniture() {
+		return outFurniture;
+	}
+	public void setOutFurniture(Set<OutFurniture> outFurniture) {
+		this.outFurniture = outFurniture;
 	}
 	
 	

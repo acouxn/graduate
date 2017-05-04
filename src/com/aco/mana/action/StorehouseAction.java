@@ -1,5 +1,7 @@
 package com.aco.mana.action;
 
+import java.util.List;
+
 import com.aco.mana.domain.Furniture;
 import com.aco.mana.domain.PageBean;
 import com.aco.mana.domain.Storehouse;
@@ -48,7 +50,15 @@ public class StorehouseAction extends ActionSupport implements ModelDriven<Store
 		return "findAll";
 	}
 	
-
+	/**
+	 * 查询所有仓库的执行方法
+	 */
+	public String findAll1(){
+		List<Storehouse> list = storehouseService.findAll();
+		ActionContext.getContext().getValueStack().set("list", list);
+		return "findAll1";
+	}
+	
 	/**
 	 * 保存仓库的执行方法
 	 */

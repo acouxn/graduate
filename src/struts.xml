@@ -22,6 +22,7 @@
 		
 		<action name="storehouse_*" class="storehouseAction" method="{1}">
 			<result name="findAll">/page/listStoreHouse.jsp</result>
+			<result name="findAll1">/page/listStoreHouse1.jsp</result>
 			<result name="saveSuccess" type="redirectAction">storehouse_findAll.action</result>		
 			<result name="editSuccess">/page/editStoreHosue.jsp</result>
 			<result name="updateSuccess" type="redirectAction">storehouse_findAll.action</result>
@@ -42,9 +43,36 @@
 			<result name="editSuccess">/page/editInFurniture.jsp</result>
 			<result name="updateSuccess" type="redirectAction">inFurniture_findAll.action</result>
 			<result name="deleteSuccess" type="redirectAction">inFurniture_findAll.action</result>
-			<result name="findFurniture">/page/listInFurnitureDetail.jsp</result>
 		</action>
 		
+		<action name="inFurnitureDetail_*" class="inFurnitureDetailAction" method="{1}">
+			<result name="findAllByInfid">/page/listInFurnitureDetail.jsp</result>
+			<result name="findAllBySid">/page/listStock.jsp</result>
+			<result name="saveUI">/page/addInFurnitureDetail.jsp</result>
+			<result name="saveSuccess" type="redirectAction">inFurniture_findAll.action</result>		
+			<result name="editSuccess">/page/editInFurnitureDetail.jsp</result>
+			<result name="updateSuccess" type="redirectAction">inFurniture_findAll.action</result>
+			<result name="deleteSuccess" type="chain">inFurnitureDetail_findAllByInfid</result>
+		</action>
+		
+		<action name="outFurniture_*" class="outFurnitureAction" method="{1}">
+			<result name="findAll">/page/listOutFurniture.jsp</result>
+			<result name="saveOutFurniture">/page/addOutFurniture.jsp</result>
+			<result name="saveSuccess" type="redirectAction">outFurniture_findAll.action</result>		
+			<result name="editSuccess">/page/editOutFurniture.jsp</result>
+			<result name="updateSuccess" type="redirectAction">outFurniture_findAll.action</result>
+			<result name="deleteSuccess" type="redirectAction">outFurniture_findAll.action</result>
+		</action>
+		
+		<action name="outFurnitureDetail_*" class="outFurnitureDetailAction" method="{1}">
+			<result name="findAllByOutfid">/page/listOutFurnitureDetail.jsp</result>
+			<result name="findAllBySid">/page/listStock.jsp</result>
+			<result name="saveUI">/page/addOutFurnitureDetail.jsp</result>
+			<result name="saveSuccess" type="redirectAction">outFurniture_findAll.action</result>		
+			<result name="editSuccess">/page/editOutFurnitureDetail.jsp</result>
+			<result name="updateSuccess" type="redirectAction">outFurniture_findAll.action</result>
+			<result name="deleteSuccess" type="redirectAction">outFurniture_findAll.action</result>
+		</action>
 	</package>
 
 </struts>

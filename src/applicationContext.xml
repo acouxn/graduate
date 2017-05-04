@@ -45,6 +45,9 @@
 				<value>com/aco/mana/domain/StoreHouse.hbm.xml</value>
 				<value>com/aco/mana/domain/Client.hbm.xml</value>
 				<value>com/aco/mana/domain/InFurniture.hbm.xml</value>
+				<value>com/aco/mana/domain/InFurnitureDetail.hbm.xml</value>
+				<value>com/aco/mana/domain/OutFurniture.hbm.xml</value>
+				<value>com/aco/mana/domain/OutFurnitureDetail.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -70,9 +73,28 @@
 	<bean id="inFurnitureAction" class="com.aco.mana.action.InFurnitureAction"
 		scope="prototype">
 		<property name="inFurnitureService" ref="inFurnitureService"></property>
-		<property name="furnitureService" ref="furnitureService"></property>
 	</bean>
-
+	<bean id="inFurnitureDetailAction" class="com.aco.mana.action.InFurnitureDetailAction"
+		scope="prototype">
+		<property name="inFurnitureDetailService" ref="inFurnitureDetailService"></property>
+		<property name="inFurnitureService" ref="inFurnitureService"></property>
+		<property name="furnitureService" ref="furnitureService"></property>
+		<property name="storehouseService" ref="storehouseService"></property>
+	</bean>
+	<bean id="outFurnitureAction" class="com.aco.mana.action.OutFurnitureAction"
+		scope="prototype">
+		<property name="outFurnitureService" ref="outFurnitureService"></property>
+		<property name="clientService" ref="clientService"></property>
+	</bean>
+	<bean id="outFurnitureDetailAction" class="com.aco.mana.action.OutFurnitureDetailAction"
+		scope="prototype">
+		<property name="outFurnitureDetailService" ref="outFurnitureDetailService"></property>
+		<property name="outFurnitureService" ref="outFurnitureService"></property>
+		<property name="furnitureService" ref="furnitureService"></property>
+		<property name="storehouseService" ref="storehouseService"></property>
+		<property name="inFurnitureDetailService" ref="inFurnitureDetailService"></property>
+	</bean>
+		
 	<!-- 配置业务层的类 -->
 	<bean id="adminService" class="com.aco.mana.service.impl.AdminServiceImpl">
 		<property name="adminDao" ref="adminDao" />
@@ -89,7 +111,16 @@
 	<bean id="inFurnitureService" class="com.aco.mana.service.impl.InFurnitureServiceImpl">
 		<property name="inFurnitureDao" ref="inFurnitureDao"></property>
 	</bean>
-
+	<bean id="inFurnitureDetailService" class="com.aco.mana.service.impl.InFurnitureDetailServiceImpl">
+		<property name="inFurnitureDetailDao" ref="inFurnitureDetailDao"></property>
+	</bean>
+	<bean id="outFurnitureService" class="com.aco.mana.service.impl.OutFurnitureServiceImpl">
+		<property name="outFurnitureDao" ref="outFurnitureDao"></property>
+	</bean>
+	<bean id="outFurnitureDetailService" class="com.aco.mana.service.impl.OutFurnitureDetailServiceImpl">
+		<property name="outFurnitureDetailDao" ref="outFurnitureDetailDao"></property>
+	</bean>
+	
 	<!-- 配置DAO的类 -->
 	<bean id="adminDao" class="com.aco.mana.dao.impl.AdminDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
@@ -106,7 +137,16 @@
 	<bean id="inFurnitureDao" class="com.aco.mana.dao.impl.InFurnitureDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-
+	<bean id="inFurnitureDetailDao" class="com.aco.mana.dao.impl.InFurnitureDetailDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="outFurnitureDao" class="com.aco.mana.dao.impl.OutFurnitureDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="outFurnitureDetailDao" class="com.aco.mana.dao.impl.OutFurnitureDetailDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
 	<!-- 配置事务管理器 -->
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">

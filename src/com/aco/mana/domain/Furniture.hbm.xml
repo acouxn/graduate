@@ -15,13 +15,16 @@
 		<property name="fsupply" column="fsupply" length="20" />
 		<property name="su_phone" column="su_phone" length="20" />
 		<property name="su_address" column="su_address" length="20" />
-		<property name="finprice" column="finprice" length="20" />
 		<property name="fexplain" column="fexplain" length="40" />
 	
 		<!-- 配置关联关系的映射 -->
-		<set name="inFurniture" table="INFURNITURE_FURNITURE">
-			<key column="furniture_id" />
-			<many-to-many class="com.aco.mana.domain.InFurniture" column="infurniture_id" />
+		<set name="inFurnitureDetail"  cascade="delete" inverse="true" >
+			<key column="in_fdfid" />
+			<one-to-many class="com.aco.mana.domain.InFurnitureDetail" />
+		</set>
+		<set name="outFurnitureDetail"  cascade="delete" inverse="true" >
+			<key column="out_ofid" />
+			<one-to-many class="com.aco.mana.domain.OutFurnitureDetail" />
 		</set>
 	</class>
 </hibernate-mapping>

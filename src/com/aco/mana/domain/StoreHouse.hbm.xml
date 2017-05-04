@@ -2,12 +2,22 @@
 <!DOCTYPE hibernate-mapping PUBLIC 
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-    <hibernate-mapping>
-    	<class name="com.aco.mana.domain.Storehouse" table="StoreHouse">
-    		<id name="sid" column="sid">
-    			<generator class="native" />
-    		</id>	
-    		<property name="sname" column="sname" length="20" />
-			<property name="saddress" column="saddress" length="20" /> 				
-    	</class>
-    </hibernate-mapping>
+<hibernate-mapping>
+	<class name="com.aco.mana.domain.Storehouse" table="StoreHouse">
+		<id name="sid" column="sid">
+			<generator class="native" />
+		</id>
+		<property name="sname" column="sname" length="20" />
+		<property name="saddress" column="saddress" length="20" />
+		
+		<!-- 配置关联关系的映射 -->
+		<set name="inFurnitureDetail" cascade="delete" inverse="true">
+			<key column="in_fdsid" />
+			<one-to-many class="com.aco.mana.domain.InFurnitureDetail" />
+		</set>
+		<set name="outFurnitureDetail" cascade="delete" inverse="true">
+			<key column="out_sid" />
+			<one-to-many class="com.aco.mana.domain.OutFurnitureDetail" />
+		</set>
+	</class>
+</hibernate-mapping>

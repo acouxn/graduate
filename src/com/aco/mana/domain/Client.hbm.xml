@@ -11,5 +11,12 @@
 			<property name="cphone" column="cphone" length="20" />
 			<property name="caddress" column="caddress" length="20" /> 	
 			<property name="cremark" column="cremark" length="20" /> 					
+    		
+    		<!-- 配置关联关系的映射 -->
+    		<set name="outFurniture" cascade="delete" inverse="true">
+				<key column="out_cid" />
+				<one-to-many class="com.aco.mana.domain.OutFurniture" />
+			</set>
+		
     	</class>
     </hibernate-mapping>
