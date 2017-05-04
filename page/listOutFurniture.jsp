@@ -19,10 +19,10 @@
 <body>
 <table border="0" width="90%">
 <tr>
-<td align="center" style="font-size:24px; color:#666"> 进货订单管理 </td>
+<td align="center" style="font-size:24px; color:#666"> 销售订单管理 </td>
 </tr>
 <tr>
-<td align="right" > <a href="${pageContext.request.contextPath}/page/addInFurniture.jsp">添加</a></td>
+<td align="right" > <a href="${pageContext.request.contextPath}/outFurniture_saveOutFurniture.action">添加</a></td>
 </tr>
 </table>
 <br/>
@@ -31,9 +31,13 @@
 <table cellspacing="0" border="1" class="table1">
 <thead>
   <tr>
-<td align="center">进货单号</td>
-<td align="center">进货时间</td>
+<td align="center">销售单号</td>
+<td align="center">销售时间</td>
+<td align="center">客户名称</td>
+<td align="center">联系电话</td>
+<td align="center">送货地址</td>
 <td align="center">备注</td>
+<td align="center">状态</td>
 <td align="center">操作</td>
 </tr>
 </thead>
@@ -41,14 +45,18 @@
 <s:iterator value="list" var="i">
 
 <tr>
-<td align="center"><s:property value="#i.in_no" /></td>
-<td align="center"><s:date name="#i.in_time" format="yyyy-MM-dd" /></td>
-<td align="center"><s:property value="#i.iremark" /></td>
+<td align="center"><s:property value="#i.out_no" /></td>
+<td align="center"><s:date name="#i.out_time" format="yyyy-MM-dd" /></td>
+<td align="center"><s:property value="#i.client.cname" /></td>
+<td align="center"><s:property value="#i.client.cphone" /></td>
+<td align="center"><s:property value="#i.client.caddress" /></td>
+<td align="center"><s:property value="#i.oremark" /></td>
+<td align="center"><s:property value="#i.status" /></td>
 
 <td align="center">
-	<a href="${pageContext.request.contextPath}/inFurniture_edit.action?in_fid=<s:property value="#i.in_fid" />">编辑 
-	<a href="${pageContext.request.contextPath}/inFurniture_delete.action?in_fid=<s:property value="#i.in_fid" />">删除	</a>
-    <a href="${pageContext.request.contextPath}/inFurnitureDetail_findAllByInfid.action?in_fid=<s:property value="#i.in_fid" />">详情</a>
+	<a href="${pageContext.request.contextPath}/outFurniture_edit.action?out_fid=<s:property value="#i.out_fid" />">编辑 
+	<a href="${pageContext.request.contextPath}/outFurniture_delete.action?out_fid=<s:property value="#i.out_fid" />">删除	</a>
+    <a href="${pageContext.request.contextPath}/outFurnitureDetail_findAllByOutfid.action?out_fdid=<s:property value="#i.out_fid" />">详情</a>
     </td>
 </tr>
 

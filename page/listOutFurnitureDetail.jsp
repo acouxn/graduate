@@ -19,11 +19,11 @@
 <body>
 <table border="0" width="90%">
 <tr>
-<td align="center" style="font-size:24px; color:#666"> 进货订单管理 </td>
+<td align="center" style="font-size:24px; color:#666"> 销售详情订单管理 </td>
 
 </tr>
 <tr>
-<td align="right" > <a href="${pageContext.request.contextPath}/inFurnitureDetail_saveUI.action">添加</a>
+<td align="right" > <a href="${pageContext.request.contextPath}/outFurnitureDetail_saveUI.action">添加</a>
 		<a href="javascript:history.go(-1)">退回</a>
 </td>
 </tr>
@@ -41,34 +41,30 @@
 <td align="center">品牌</td>
 <td align="center">数量</td>
 <td align="center">价格</td>
-<td align="center">运费</td>
 <td align="center">合计费用</td>
 <td align="center">存放仓库</td>
-
-
+<td align="center">是否退货</td>
 <td align="center">操作</td>
 </tr>
 </thead>
 <tbody>
 <s:set name="allprice" value="0"></s:set>
-<s:iterator value="inflist" var="i">
-
+<s:iterator value="outflist" var="i">
 <tr>
 <td align="center"><s:property value="#i.furniture.fname" /></td>
 <td align="center"><s:property value="#i.furniture.ftype" /></td>
 <td align="center"><s:property value="#i.furniture.fsize" /></td>
 <td align="center"><s:property value="#i.furniture.fcolor" /></td>
 <td align="center"><s:property value="#i.furniture.fbrand" /></td>
-<td align="center"><s:property value="#i.in_fdnum" /></td>
-<td align="center"><s:property value="#i.in_fprice" /></td>
-<td align="center"><s:property value="#i.in_ftransprice" /></td>
-<td align="center"><s:property value="(#i.in_fprice+#i.in_ftransprice)*#i.in_fdnum" />
-<s:set name="allprice" value="#allprice+(#i.in_fprice+#i.in_ftransprice)*#i.in_fdnum"></s:set>
+<td align="center"><s:property value="#i.out_fdnum" /></td>
+<td align="center"><s:property value="#i.out_fprice" /></td>
+<td align="center"><s:property value="#i.out_fprice*#i.out_fdnum" />
+<s:set name="allprice" value="#allprice+#i.out_fprice*#i.out_fdnum"></s:set>
 </td>  
 <td align="center"><s:property value="#i.storehouse.sname"  /></td>
-
-<td align="center"><a href="${pageContext.request.contextPath}/inFurnitureDetail_edit.action?in_fdid=<s:property value="#i.in_fdid" />&in_fid=<s:property value="#i.inFurniture.in_fid" />">编辑 
-	<a href="${pageContext.request.contextPath}/inFurnitureDetail_delete.action?in_fdid=<s:property value="#i.in_fdid" />&in_fid=<s:property value="#i.inFurniture.in_fid" />">删除	</a>
+<td align="center"><s:property value="#i.flag"  /></td>
+<td align="center"><a href="${pageContext.request.contextPath}/outFurnitureDetail_edit.action?out_fdid=<s:property value="#i.out_fdid" />">编辑 
+	<a href="${pageContext.request.contextPath}/outFurnitureDetail_delete.action?out_fdid=<s:property value="#i.out_fdid" />&furniture.fid=<s:property value="#i.furniture.fid" />&out_fdnum=<s:property value="#i.out_fdnum" />&storehouse.sid=<s:property value="#i.storehouse.sid" />&flag=<s:property value="#i.flag" />">删除	</a>
     </td>
     
 </tr>

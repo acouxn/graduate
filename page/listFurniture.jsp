@@ -39,7 +39,6 @@
 <td align="center">厂商</td>
 <td align="center">厂商电话</td>
 <td align="center">厂商地址</td>
-<td align="center">进货价格</td>
 <td align="center">详情</td>
 <td align="center">操作</td>
 </tr>
@@ -55,7 +54,6 @@
 <td align="center"><s:property value="#f.fsupply" /></td>
 <td align="center"><s:property value="#f.su_phone" /></td>
 <td align="center"><s:property value="#f.su_address" /></td>
-<td align="center"><s:property value="#f.finprice" /></td>
 <td align="center"><s:property value="#f.fexplain" /></td>
 <td align="center"><a href="${pageContext.request.contextPath}/furniture_edit.action?fid=<s:property value="#f.fid" />">编辑 <a href="${pageContext.request.contextPath}/furniture_delete.action?fid=<s:property value="#f.fid" />">删除</a></td>
 </tr>
